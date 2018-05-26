@@ -4,7 +4,7 @@
 ; - Install the PoEHUD and run it with PoE
 ; - Enable Preload Alerts in the PoEHUD
 ; - Install AutoHotKey
-; - Set the char slots below that shall be used (no scrolling of the chars possible)
+; - Set the char slots to "y" below that shall be used (no scrolling of the chars possible)
 ; - Select at least 3 char slots
 ; - If you want permanent updates on how many runs were made, enable the enableTray option
 ; - Save the script with your slots/tray notification settings
@@ -21,4 +21,4 @@ char6 := "n"
 ; This may not work in all windows versions. It worked for me until I updated Win10 to v1803
 enableTray := "n"
 
-vers := "2018-05-17-01"
+vers := "2018-05-26-05"
