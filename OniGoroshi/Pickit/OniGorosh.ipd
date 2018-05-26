@@ -1,0 +1,46 @@
+// We want to pickup Tabula Rasa and Oni-Goroshi - hence all 6-linked items
+[Sockets] == "6" && [Linked] >= "6" # [StashItem] =="true" // Keep 6L6S
+
+// We want to pickup Uniques (there's some boots and 1hand claw and ring that ain't too bad
+[Rarity] == "Unique" # [StashItem] == "true"
+
+// We want to pickup portal gem if it drops (probably not)
+[Type] == "Portal" // Drop Only Gem
+
+// We want to pick 1handed rare weapons
+[Category] == "1HandedWeapon" && [Rarity] == "Rare" # [StashItem] == "true"
+
+// We want to pickup rings and amu / 2 iron rings increase damage a lot
+[Category] == "Ring" # [StashItem] == "true"
+[Category] == "Amulet" # [StashItem] == "true"
+
+// We want to pickup mana potions - they don't drop often
+[Type] == "Small Mana Flask"
+[Type] == "Medium Mana Flask"
+
+// We want to pickup all currency not much is dropped though.....
+[Type] == "Scroll of Wisdom" # [StashItem] == "true" // Take all id scroll
+[Type] == "Portal Scroll" # [StashItem] == "true" // Take all tp scroll
+[Type] == "Blacksmith's Whetstone" # [StashItem] == "true" // Take Blacksmith's Whetstone
+[Type] == "Armourer's Scrap" # [StashItem] == "true" // Take Armourer's Scrap
+[Type] == "Glassblower's Bauble" # [StashItem] == "true" // Take Glassblower's Bauble
+[Type] == "Blessed Orb" # [StashItem] == "true"
+[Type] == "Chaos Orb" # [StashItem] == "true"
+[Type] == "Chromatic Orb" # [StashItem] == "true"
+[Type] == "Divine Orb" # [StashItem] == "true"
+[Type] == "Exalted Orb" # [StashItem] == "true"
+[Type] == "Gemcutter's Prism" # [StashItem] == "true"
+[Type] == "Jeweller's Orb" # [StashItem] == "true"
+[Type] == "Mirror of Kalandra" # [StashItem] == "true"
+[Type] == "Orb of Alchemy" # [StashItem] == "true"
+[Type] == "Orb of Alteration" # [StashItem] == "true"
+[Type] == "Orb of Augmentation" # [StashItem] == "true"
+[Type] == "Orb of Chance" # [StashItem] == "true"
+[Type] == "Orb of Fusing" # [StashItem] == "true"
+[Type] == "Orb of Regret" # [StashItem] == "true"
+[Type] == "Orb of Scouring" # [StashItem] == "true"
+[Type] == "Orb of Transmutation" # [StashItem] == "true"
+[Type] == "Perandus Coin" # [StashItem] == "true"
+[Type] == "Regal Orb" # [StashItem] == "true"
+[Type] == "Silver Coin" # [StashItem] == "true"
+[Type] == "Vaal Orb" # [StashItem] == "true"
