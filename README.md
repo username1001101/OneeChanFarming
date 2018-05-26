@@ -90,7 +90,6 @@ You need:
 ### How to auto-level
 
 * Start PoE
-* Start the PoEHud
 * Log into account and go to the character selection list
 * Start Exiled Bot
 * On the profile on the bottom select "OniGoroshi"
