@@ -18,7 +18,9 @@ char4 := "n"
 char5 := "n"
 char6 := "n"
 
-; This may not work in all windows versions. It worked for me until I updated Win10 to v1803
-enableTray := "n"
+; Auto Resize
+; Some people have issues with the auto resize to 800x600 and the AHK script just exit (vanish when mouse moved over)
+; Set to "n" if you experience this problem as well
+autoResize := "y"
 
-vers := "2018-05-26-05"
+vers := "2018-05-27-02"

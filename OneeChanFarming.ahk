@@ -2,13 +2,27 @@
 ; DO NOT EDIT BELOW
 ; -----------------------------------------------------------------------------------
 
+; If the script is not elevated, relaunch as administrator and kill current instance:
+full_command_line := DllCall("GetCommandLine", "str")
+if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
+{
+    try ; leads to having the script re-launching itself as administrator
+    {
+        if A_IsCompiled
+            Run *RunAs "%A_ScriptFullPath%" /restart
+        else
+            Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
+    }
+    ExitApp
+}
+
 global version := "2018-05-17-01"
 global slot1 := "n", slot2 := "n", slot3 := "n", slot4 = "n", slot5 := "n", slot6 := "n"
 global slotRun1 := "0", slotRun2 := "999000", slotRun3 := "999000", slotRun4 := "999000", slotRun5 := "999000", slotRun6 := "999000"
 global slotExit1 := "0", slotExit2 := "0", slotExit3 := "0", slotExit4 := "0", slotExit5 := "0", slotExit6 := "0"
-global enableTray := "n"
 global totalStartTime := "0"
 global currentStartTime := "0"
+global poeAutoResize := "y"
 
 chkConfig() {
     IfNotExist, config.ahk
@@ -27,7 +41,7 @@ chkConfig() {
     slot4 := char4
     slot5 := char5
     slot6 := char6
-    enableTray := enableTrayNotification
+    poeAutoResize := autoResize
 }
 
 
@@ -68,7 +82,9 @@ initializePoE() {
     WinActivate, Path of Exile
     sleepRandom(800, 1200)
     ; Resize PoE to 800x600
-    WinMove, Path of Exile, , , , 800, 600
+    if (poeAutoResize = y) {
+        WinMove, Path of Exile, , , , 800, 600
+    }
     sleepRandom(800, 1200)
 }
 
@@ -126,9 +142,9 @@ mainRoutine() {
             currentRunTime := round(currentRunTime)
             avgRunTime := round(avgRunTime, 1)
             avgResetTime := round(avgRuntime * (i - 1), 1)
-            if (enableTray = "y") {
-                ToolTip, Uber Hillock Run No.: %runCount%`nTotal Run Time: %totalRunTime%s`nLast Run Duration: %currentRunTime%s`nAverage Run Duration: %avgRunTime%s`nAverage Time for Resetting: %avgResetTime%s, 20, 10
-            }
+
+            ToolTip, Uber Hillock Run No.: %runCount%`nTotal Run Time: %totalRunTime%s`nLast Run Duration: %currentRunTime%s`nAverage Run Duration: %avgRunTime%s`nAverage Time for Resetting: %avgResetTime%s, 20, 10
+
             currentStartTime := A_TickCount
                 
             x1 := 520

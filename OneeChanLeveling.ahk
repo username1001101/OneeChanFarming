@@ -37,7 +37,7 @@ chkConfig() {
     slot4 := char4
     slot5 := char5
     slot6 := char6
-    enableTray := enableTrayNotification
+    poeAutoResize := autoResize
 }
 
 
@@ -78,7 +78,9 @@ initializePoE() {
     WinActivate, Path of Exile
     sleepRandom(800, 1200)
     ; Resize PoE to 800x600
-    WinMove, Path of Exile, , , , 800, 600
+    if (poeAutoResize = y) {
+        WinMove, Path of Exile, , , , 800, 600
+    }
     sleepRandom(800, 1200)
 }
 
@@ -124,9 +126,7 @@ mainRoutine() {
             currentRunTime := round(currentRunTime)
             avgRunTime := round(avgRunTime, 1)
             avgResetTime := round(avgRuntime * (i - 1), 1)
-;            if (enableTray = "y") {
-;               ToolTip, Uber Hillock Run No.: %runCount%`nTotal Run Time: %totalRunTime%s`nLast Run Duration: %currentRunTime%s`nAverage Run Duration: %avgRunTime%s`nAverage Time for Resetting: %avgResetTime%s, 20, 10
-;            }
+;            ToolTip, Uber Hillock Run No.: %runCount%`nTotal Run Time: %totalRunTime%s`nLast Run Duration: %currentRunTime%s`nAverage Run Duration: %avgRunTime%s`nAverage Time for Resetting: %avgResetTime%s, 20, 10
             currentStartTime := A_TickCount
                 
             x1 := 520
