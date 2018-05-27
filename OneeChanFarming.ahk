@@ -82,7 +82,7 @@ initializePoE() {
     WinActivate, Path of Exile
     sleepRandom(800, 1200)
     ; Resize PoE to 800x600
-    if (poeAutoResize = y) {
+    if (poeAutoResize = "y") {
         WinMove, Path of Exile, , , , 800, 600
     }
     sleepRandom(800, 1200)
