@@ -2,102 +2,9 @@
 ; DO NOT EDIT BELOW
 ; -----------------------------------------------------------------------------------
 
-; If the script is not elevated, relaunch as administrator and kill current instance:
-full_command_line := DllCall("GetCommandLine", "str")
-if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
-{
-    try ; leads to having the script re-launching itself as administrator
-    {
-        if A_IsCompiled
-            Run *RunAs "%A_ScriptFullPath%" /restart
-        else
-            Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
-    }
-    ExitApp
-}
+; Load the common.inc.ahk file
+#Include common.inc.ahk
 
-global version := "2018-05-17-01"
-global slot1 := "n", slot2 := "n", slot3 := "n", slot4 = "n", slot5 := "n", slot6 := "n"
-global enableTray := "n"
-
-chkConfig() {
-    IfNotExist, config.ahk
-    {
-        FileCopy, config.tpl, config.ahk
-        MsgBox, No prior config file found. Default config was created from template. You'll need to enable desired character slots.
-        ExitApp
-    }
-    
-    ; Load the config file
-    #Include config.ahk
-    ; assign vars from config to script vars
-    slot1 := char1
-    slot2 := char2
-    slot3 := char3
-    slot4 := char4
-    slot5 := char5
-    slot6 := char6
-    poeAutoResize := autoResize
-}
-
-
-buildSlots() {
-    
-    charArray := Object()
-
-    if (slot1 = "y") {
-        charArray.Push([100, 125])
-    }
-    if (slot2 = "y") {
-        charArray.Push([145, 170])
-    }
-    if (slot3 = "y") {
-        charArray.Push([190, 215])
-    }
-    if (slot4 = "y") {
-        charArray.Push([235, 260])
-    }
-    if (slot5 = "y") {
-        charArray.Push([280, 305])
-    }
-    if (slot6 = "y") {
-        charArray.Push([325, 350])
-    }
-    return charArray
-}
-
-
-sleepRandom(min, max) {
-    Random, s, %min%, %max%
-    Sleep %s%
-}
-
-
-initializePoE() {
-    ; Set PoE to active Window
-    WinActivate, Path of Exile
-    sleepRandom(800, 1200)
-    ; Resize PoE to 800x600
-    if (poeAutoResize = "y") {
-        WinMove, Path of Exile, , , , 800, 600
-    }
-    sleepRandom(800, 1200)
-}
-
-
-goToCharSelection(j) {
-    ; Set PoE to active Window
-    WinActivate, Path of Exile
-    ; Open Chat Input
-    Send {enter}
-    sleepRandom(800, 1200)
-    ; Enter exit string
-    Send /exit
-    sleepRandom(800, 1200)
-    ; Submit exit string
-    Send {enter}
-    sleepRandom(4000, 6000)
-}
 
 
 mainRoutine() {
@@ -180,8 +87,12 @@ mainRoutine() {
     }
 }
 
+
+
 chkConfig()
 initializePoE()
 mainRoutine()
+
+
 
 F4::pause, toggle
