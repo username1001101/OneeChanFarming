@@ -16,7 +16,7 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
     ExitApp
 }
 
-global version := "2018-05-17-01"
+global version := "2018-05-17-02"
 global slot1 := "n", slot2 := "n", slot3 := "n", slot4 = "n", slot5 := "n", slot6 := "n"
 global enableTray := "n"
 
