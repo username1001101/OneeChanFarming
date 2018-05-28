@@ -147,6 +147,7 @@ mainRoutine() {
             
             ; Start Bot
             WinActivate, , PoE Version
+            sleepRandom(200, 400)
             ControlClick, Button3, , PoE Version, LEFT,, NA
             exitSearchStart := A_TickCount
             loop {
@@ -168,6 +169,7 @@ mainRoutine() {
             }
             ; Stop Bot
             WinActivate, , PoE Version
+            sleepRandom(200, 400)
             Send {F12}
             sleepRandom(1000, 2000)
             ControlClick, Button3, , PoE Version, LEFT,, NA
