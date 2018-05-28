@@ -4,6 +4,8 @@ Two small scripts for farming [Uber Hillock](https://pathofexile.gamepedia.com/H
 
 * **OneChanFarming.ahk**: This script is for actually opening instances and check if Uber Hillock is present - requires Dx11 and PoEHUD
 * **OneChanLeveling.ahk**: This script is for automatic levelling up chars in The Twilight Strand - requires DX9/ex and Exiled Bot
+* **mailsoundtest.ahk**: This script is to test whether sound and email notifications work
+
 
 **WARNING: USING THESE SCRIPTS CAN GET YOUR ACCOUNT BANNED.** Don't whine if that happens. Best to make a new account.
 
