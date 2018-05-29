@@ -83,6 +83,7 @@ mainRoutine() {
 
 
 
+chkAdmin()
 chkConfig()
 initializePoE()
 mainRoutine()
