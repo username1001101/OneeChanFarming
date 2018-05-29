@@ -53,9 +53,9 @@ mainRoutine() {
             sleepRandom(4000, 8000)
             
             ; Start Bot
-            WinActivate, , PoE Version
+            WinActivate, , Elite status
             sleepRandom(200, 400)
-            ControlClick, Button3, , PoE Version, LEFT,, NA
+            ControlClick, Button3, , Elite status, LEFT,, NA
             exitSearchStart := A_TickCount
             loop {
                 ImageSearch, Px, Py, 655, 35, 805, 100, *9 exit.bmp
@@ -75,11 +75,11 @@ mainRoutine() {
                 }
             }
             ; Stop Bot
-            WinActivate, , PoE Version
+            WinActivate, , Elite status
             sleepRandom(200, 400)
             Send {F12}
             sleepRandom(1000, 2000)
-            ControlClick, Button3, , PoE Version, LEFT,, NA
+            ControlClick, Button3, , Elite status, LEFT,, NA
             sleepRandom(3000, 5000)
             goToCharSelection(j)
             runCount++
