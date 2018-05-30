@@ -17,7 +17,7 @@ mainRoutine() {
     }
 
     if (i < 3) {
-        MsgBox, You need at least 3 characters for rotating. You have selected only %i%.
+        MsgBox, You need at least 3 characters for rotating. You have selected only %i%. Edit your config.ahk.
         ExitApp
     }
 
