@@ -136,7 +136,7 @@ goToCharSelection(j) {
 
 
 
-checkHillock(runCount) {
+checkHillock(runCount, totalRunTimeM) {
     PixelSearch, Px, Py, 565, 120, 650, 140, 0x00FF00, 3, Fast
     if ErrorLevel {
         ; Uber Hillock was not found; do nothing
@@ -145,7 +145,7 @@ checkHillock(runCount) {
             SoundPlay, %A_WinDir%\Media\ding.wav
         }
         if ( sendEmail = "y" ) {
-            emailText = "Uber Hillock was found. Get your Oni-Goroshi by killing him. It only took " . runCount . " runs."
+            emailText := "Uber Hillock was found. Get your Oni-Goroshi by killing him. It only took " . runCount . " attempts and " . totalRunTimeM "m."
             sendEmail(emailText)
         }
         MsgBox, Uber Hillock was found. Get your Oni-Goroshi by killing him. It only took %runCount% runs.

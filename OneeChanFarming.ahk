@@ -30,11 +30,12 @@ mainRoutine() {
             currentRunTime := (A_TickCount - currentStartTime) / 1000
             avgRunTime := totalRunTime / (runCount - 1)
             totalRunTime := round(totalRunTime)
+            totalRunTimeM := round(totalRunTime / 60)
             currentRunTime := round(currentRunTime)
             avgRunTime := round(avgRunTime, 1)
             avgResetTime := round(avgRuntime * (i - 1), 1)
 
-            ToolTip, Uber Hillock Run No.: %runCount%`nTotal Run Time: %totalRunTime%s`nLast Run Duration: %currentRunTime%s`nAverage Run Duration: %avgRunTime%s`nAverage Time for Resetting: %avgResetTime%s, 20, 10
+            ToolTip, Uber Hillock Run No.: %runCount%`nTotal Run Time: %totalRunTime%s / %totalRunTimeM%m`nLast Run Duration: %currentRunTime%s`nAverage Run Duration: %avgRunTime%s`nAverage Time for Resetting: %avgResetTime%s, 20, 10
 
             currentStartTime := A_TickCount
                 
@@ -74,7 +75,7 @@ mainRoutine() {
             }                        
 
             WinActivate, Path of Exile
-            checkHillock(runCount)
+            checkHillock(runCount, totalRunTimeM)
             goToCharSelection(j)
             runCount++
         }
