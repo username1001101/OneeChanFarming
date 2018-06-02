@@ -70,7 +70,7 @@ chkConfig() {
     sendEmailPort       := emailPort
     sendEmailSSL        := emailSSL
 
-    levelingExit        := lvlExit
+    levelingExit        := lvlExit * 1000
 
 }
 
