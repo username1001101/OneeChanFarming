@@ -35,7 +35,7 @@ mainRoutine() {
             avgResetTime := round(avgRuntime * (i - 1), 1)
 ;            ToolTip, Uber Hillock Run No.: %runCount%`nTotal Run Time: %totalRunTime%s`nLast Run Duration: %currentRunTime%s`nAverage Run Duration: %avgRunTime%s`nAverage Time for Resetting: %avgResetTime%s, 20, 10
             currentStartTime := A_TickCount
-                
+
             x1 := 520
             x2 := 750
             y1 := charArray[j, 1]
@@ -51,7 +51,7 @@ mainRoutine() {
 
             ; Char is now in The Twilight Strand
             sleepRandom(4000, 8000)
-            
+
             ; Start Bot
             WinActivate, , Elite status
             sleepRandom(200, 400)
@@ -70,7 +70,7 @@ mainRoutine() {
                 ; Also stop bot after 2 minutes
                 exitSearchCurrent := A_TickCount
                 exitSearchRun := exitSearchCurrent - exitSearchStart
-                if(exitSearchRun >= 120000) {
+                if(exitSearchRun >= levelingExit) {
                     break
                 }
             }

@@ -2,7 +2,7 @@
 ; DO NOT EDIT BELOW
 ; -----------------------------------------------------------------------------------
 
-global version := "2018-05-27-02"
+global version := "2018-06-02-01"
 global slot1 := "n", slot2 := "n", slot3 := "n", slot4 = "n", slot5 := "n", slot6 := "n"
 global slotRun1 := "0", slotRun2 := "999000", slotRun3 := "999000", slotRun4 := "999000", slotRun5 := "999000", slotRun6 := "999000"
 global slotExit1 := "0", slotExit2 := "0", slotExit3 := "0", slotExit4 := "0", slotExit5 := "0", slotExit6 := "0"
@@ -19,6 +19,8 @@ global sendEmailPassword    := ""
 global sendEmailServer      := ""
 global sendEmailPort        := ""
 global sendEmailSSL         := ""
+
+global levelingExit         := 120
 
 
 chkAdmin() {
@@ -68,12 +70,14 @@ chkConfig() {
     sendEmailPort       := emailPort
     sendEmailSSL        := emailSSL
 
+    levelingExit        := lvlExit
+
 }
 
 
 
 buildSlots() {
-    
+
     charArray := Object()
 
     if (slot1 = "y") {

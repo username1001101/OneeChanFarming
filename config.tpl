@@ -38,9 +38,16 @@ emailPort       := "587"                    ; provide port to which email is sen
 emailSSL        := True                     ; set True/False depending whether your email provider supports SSL/TLS
 
 
+; Adjust hard-leveling timeout
+; Currently the tools switches to next toon when Hillock was killed or when it run for a given length.
+; Set the timeout below
+
+lvlExit         := 120                      ; 120 seconds, default
+
+
 ; Auto Resize
 ; Some people have issues with the auto resize to 800x600 and the AHK script just exit (vanish when mouse moved over)
 ; Set to "n" if you experience this problem as well
 autoResize := "y"
 
-vers := "2018-05-28-01"
+vers := "2018-06-02-01"
