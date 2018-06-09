@@ -22,6 +22,10 @@ global sendEmailSSL         := ""
 
 global levelingExit         := 120
 
+global origX                := 0
+global origY                := 0
+global origWidth            := 0
+global origHeight           := 0
 
 chkAdmin() {
     ; If the script is not elevated, relaunch as administrator and kill current instance:
@@ -116,6 +120,7 @@ initializePoE() {
     sleepRandom(800, 1200)
     ; Resize PoE to 800x600
     if (poeAutoResize = "y") {
+        WinGetPos, origX, origY, origWidth, origHeight, Path of Exile
         WinMove, Path of Exile, , , , 800, 600
     }
     sleepRandom(800, 1200)
@@ -153,6 +158,11 @@ checkHillock(runCount, totalRunTimeM) {
             sendEmail(emailText)
         }
         MsgBox, Uber Hillock was found. Get your Oni-Goroshi by killing him. It only took %runCount% runs.
+
+        ; Restore original window
+        if (poeAutoResize = "y") {
+            WinMove, Path of Exile, , %origX%, %origY%, %origWidth%, %origHeight%
+        }
         ExitApp
     }
 }
