@@ -32,7 +32,10 @@ global origY                := 0
 global origWidth            := 0
 global origHeight           := 0
 
+
+
 chkAdmin() {
+
     ; If the script is not elevated, relaunch as administrator and kill current instance:
     full_command_line := DllCall("GetCommandLine", "str")
     if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)")) {
@@ -45,6 +48,9 @@ chkAdmin() {
         }
         ExitApp
     }
+    ; Start Info
+    MsgBox, After you press ok the script will start.`n`nYou can Pause/Resume at anytime using F4 key.
+
 }
 
 
