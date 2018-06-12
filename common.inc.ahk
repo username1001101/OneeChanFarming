@@ -2,6 +2,11 @@
 ; DO NOT EDIT BELOW
 ; -----------------------------------------------------------------------------------
 
+
+; Register the exit function
+OnExit("exitFunc")
+
+
 global version := "2018-06-02-01"
 global slot1 := "n", slot2 := "n", slot3 := "n", slot4 = "n", slot5 := "n", slot6 := "n"
 global slotRun1 := "0", slotRun2 := "999000", slotRun3 := "999000", slotRun4 := "999000", slotRun5 := "999000", slotRun6 := "999000"
@@ -212,5 +217,15 @@ sendEmail(emailText) {
         pmsg.AddAttachment(A_LoopField)
     pmsg.Send()
     return
+}
 
+
+
+exitFunc() {
+    ; For some reasons I need to have something else in here, otherwise it would just do weird stuff.
+    MsgBox, Thank you for using my script. Feel free to submit improvements.
+    ; Restore original window
+    if (poeAutoResize = "y") {
+        WinMove, Path of Exile, , %origX%, %origY%, %origWidth%, %origHeight%
+    }
 }
